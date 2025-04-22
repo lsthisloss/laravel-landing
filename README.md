@@ -72,10 +72,16 @@ docker ps
 docker exec -it <php-container-name> bash
 chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+docker compose down
+docker compose build php
+docker compose up --build
+php artisan migrate
+Now try open the app.
+
+Also, you can try to clear artisan cache, sometimes its because of it.
 php artisan config:clear
 php artisan cache:clear
 php artisan view:clear
-Now try open the app.
 ```
 
 
