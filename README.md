@@ -65,7 +65,14 @@ docker compose up --build
 php artisan migrate
 Now you can open the app at a address http://localhost:80
 ```
-
+You can compile scss styles into css directly
+```plaintext
+npx sass /home/dev/landing/resources/scss/main.scss /home/dev/landing/resources/css/app.css
+```
+After this you can create a build of css and js files. Vite creates compiled files in the /public/build directory
+```plaintext
+npm run build 
+```
 If you got an error "Failed to open stream: Permission denied", you need to set chmod -R 775 in your docker container.
 ```plaintext
 docker ps
@@ -83,14 +90,6 @@ php artisan config:clear
 php artisan cache:clear
 php artisan view:clear
 
-```
-You can compile scss styles into css directly
-```plaintext
-npx sass /home/dev/landing/resources/scss/main.scss /home/dev/landing/resources/css/app.css
-```
-After this you can create a build of css and js files. Vite creates compiled files in the /public/build directory
-```plaintext
-npm run build 
 ```
 
 ## Summary
