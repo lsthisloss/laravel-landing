@@ -8,7 +8,15 @@
 - **Responsive design**: Supports layouts for different devices.
 - **Dynamic SVG generation**: Generates SVG icons with dynamic positions and styles.
 
+## Under the hood
+In development mode `npm run dev` the browser loads JavaScript and CSS directly from the Vite server (port 5173). Vite processes and compiles JavaScript and CSS on the fly and provides hot reloading. Nginx continues to serve requests to the server side (to Laravel), but frontend resources (JS, CSS) go through Vite. 
+When you open a page, the browser requests resources (eg http://localhost:5173/src/main.js) from Vite.
+In production mode `npm run build` Vite creates optimized files (CSS, JS) in the /public/build directory. Nginx serves these compiled files. Nginx listens on port 80 and serves the Laravel application. Acts as the entry point for all HTTP requests.
 
+- **Php-FPM** runs a pool of processes that process PHP code. When a web server receives a request to execute a PHP file, it forwards the request to PHP-FPM via FastCGI. PHP-FPM processes the request, executes the PHP code, and returns the result to the web server.
+- **Nginx** is a web server that serves static files (e.g., CSS, JS, images) and proxies PHP requests to PHP-FPM. 
+- **Mysql** a database for laravel sessions and other purposes.
+- **PHPMyAdmin** provides a web-based interface for managing the MySQL database.
 
 ## Blade Components and the project structure
 <details>
@@ -63,8 +71,8 @@ cp .env.example .env
 docker compose build php
 docker compose up --build
 php artisan migrate
-Now you can open the app at a address http://localhost:80
 ```
+Open the app at http://localhost:80
 You can compile scss styles into css directly
 ```plaintext
 npx sass /home/dev/landing/resources/scss/main.scss /home/dev/landing/resources/css/app.css
