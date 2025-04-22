@@ -1,22 +1,21 @@
-version: '3.8'
 
 services:
 
   ####################################################################################################
   # PHP
   ####################################################################################################
-  php:
+    php:
     build: .docker/php
     ports:
-      - 5173:5173
+        - 5173:5173
     volumes:
-      - .:/var/www:cached
+        - .:/var/www:cached
     depends_on:
-      - db
+        - db
     command: >
-      sh -c "chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache &&
-             chmod -R 775 /var/www/storage /var/www/bootstrap/cache &&
-             php-fpm"
+        sh -c "chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache &&
+            chmod -R 775 /var/www/storage /var/www/bootstrap/cache &&
+            php-fpm"
 
   ####################################################################################################
   # Nginx
@@ -40,7 +39,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - db-data:/var/lib/mysql
+      - db-data:/var/lib/mysql # Использование Docker volume вместо монтирования с хоста
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: laravel
@@ -60,5 +59,7 @@ services:
     depends_on:
       - db
 
+
 volumes:
   db-data: # Для хранения данных MySQL
+  # redis-data: # Для хранения данных Redis

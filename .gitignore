@@ -41,7 +41,6 @@ Thumbs.db
 
 # Composer зависимости
 /vendor/
-
 # Кэш IDE
 .idea/
 .vscode/
@@ -76,3 +75,4 @@ Thumbs.db
 
 .env
 package-lock.json
+composer.lock
