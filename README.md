@@ -85,8 +85,13 @@ php artisan serve
 Summary: Laravel provides a flexible development framework, making it easy to add new features and maintain existing code, integrate it with API or write a tests.
 
 ## Demo
-![image](https://github.com/user-attachments/assets/da345f5e-3325-419a-8170-d828bb09e8fc)            
-![image](https://github.com/user-attachments/assets/7e3a4974-2e87-4168-a2d8-a0e56ff23cc9)
+### Mobile
+![Screenshot 2025-04-22 034352](https://github.com/user-attachments/assets/b3cf0cc9-ac4d-4280-897f-887cd4f169cc)            
+![image](https://github.com/user-attachments/assets/23740e69-67a4-440b-8b54-d5adff6e87d8)
+
+### Desktop
+![Screenshot 2025-04-22 034024](https://github.com/user-attachments/assets/3ccf7869-3669-4347-90ad-1207560863ec)        
+
 
 
 
