@@ -86,12 +86,17 @@ Summary: Laravel provides a flexible development framework, making it easy to ad
 
 ## Demo
 ### Mobile
+<details>
+<summary>Click to expand the mobile version</summary>    
 ![Screenshot 2025-04-22 034352](https://github.com/user-attachments/assets/b3cf0cc9-ac4d-4280-897f-887cd4f169cc)            
 ![image](https://github.com/user-attachments/assets/23740e69-67a4-440b-8b54-d5adff6e87d8)
+</details>
 
 ### Desktop
+<details>
+<summary>Click to expand the desktop version</summary>    
 ![Screenshot 2025-04-22 034024](https://github.com/user-attachments/assets/3ccf7869-3669-4347-90ad-1207560863ec)        
-
-
+![image](https://github.com/user-attachments/assets/435272c2-47b6-4f8f-be0d-94f1a6d4214d)
+</details>
 
 
