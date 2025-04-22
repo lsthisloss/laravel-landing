@@ -4,14 +4,18 @@ services:
   ####################################################################################################
   # PHP
   ####################################################################################################
-  php:
+    php:
     build: .docker/php
     ports:
-      - 5173:5173
+        - 5173:5173
     volumes:
-      - .:/var/www:cached # Оптимизация монтирования
+        - .:/var/www:cached
     depends_on:
-      - db
+        - db
+    command: >
+        sh -c "chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache &&
+            chmod -R 775 /var/www/storage /var/www/bootstrap/cache &&
+            php-fpm"
 
   ####################################################################################################
   # Nginx

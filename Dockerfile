@@ -1,9 +1,10 @@
 FROM php:8.3-fpm
 
-# Копируем конфигурацию PHP (если у тебя есть кастомный php.ini, иначе можно убрать)
-#COPY php.ini /usr/local/etc/php/
+WORKDIR /var/www
 
-# Устанавливаем зависимости и расширения для Laravel
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
+    && chmod -R 777 /var/www/storage /var/www/bootstrap/cache
+
 RUN apt-get update && apt-get install -y \
     default-mysql-client \
     libpq-dev \
@@ -13,11 +14,6 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo_mysql \
     && rm -rf /var/lib/apt/lists/*
 
-# Устанавливаем Composer
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-    && php composer-setup.php \
-    && php -r "unlink('composer-setup.php');" \
-    && mv composer.phar /usr/local/bin/composer
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
