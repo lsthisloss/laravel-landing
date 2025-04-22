@@ -82,9 +82,16 @@ Also, you can try to clear artisan cache, sometimes its because of it.
 php artisan config:clear
 php artisan cache:clear
 php artisan view:clear
+
 ```
-
-
+You can compile scss styles into css directly
+```plaintext
+npx sass /home/dev/landing/resources/scss/main.scss /home/dev/landing/resources/css/app.css
+```
+After this you can create a build of css and js files. Vite creates compiled files in the /public/build directory
+```plaintext
+npm run build 
+```
 
 ## Summary
 Summary: Laravel provides a flexible development framework, making it easy to add new features and maintain existing code, integrate it with API or write a tests.
