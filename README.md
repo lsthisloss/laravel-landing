@@ -71,8 +71,9 @@ docker compose build php
 docker compose up --build
 php artisan migrate
 ```
-Open the app at http://localhost:80
-You can compile scss styles into css directly
+Open the app at http://localhost:80    
+
+You can compile scss styles into css directly to verify the scss
 ```plaintext
 npx sass /home/dev/landing/resources/scss/main.scss /home/dev/landing/resources/css/app.css
 ```
