@@ -1,0 +1,99 @@
+@use "../base/variables";
+
+nav
+{
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      list-style: none;
+      margin: 0;
+
+      li a {
+        color: variables.$white;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 500;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 56px;
+    gap: 36px;
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        span {
+            color: variables.$white;
+        }
+    }
+    .nav-links {
+        display: flex;
+            gap: 32px;
+            padding-left: 32px;
+            list-style: none;
+            margin: 0;
+    }
+
+    .right-content {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .logo-text {
+        display: flex;
+        flex-direction: column;
+        font-size: 8px;
+        font-weight: 400;
+        text-transform: uppercase;
+        line-height: 1;
+    }
+    .logo-text span:first-child {
+        color: #6B7280;
+    }
+
+    .logo-text span:last-child {
+        color: #FFFFFF;
+    }
+
+ }
+ @media (max-width: 767px) {
+    .navbar {
+        gap: 16px;
+    }
+    .nav-links {
+        display: none !important;
+        position: absolute;
+        top: variables.$header-height;
+        margin: 4px 12px 0 0;
+        right: 0;
+        background-color: variables.$base-color;
+        flex-direction: column;
+        padding: 16px;
+        z-index: 1000;
+        border: 1px solid variables.$white;
+        border-radius: variables.$border-radius;
+
+      }
+  }
+
+

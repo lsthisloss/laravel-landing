@@ -1,0 +1,61 @@
+
+services:
+
+  ####################################################################################################
+  # PHP
+  ####################################################################################################
+  php:
+    build: .docker/php
+    ports:
+      - 5173:5173
+    volumes:
+      - .:/var/www:cached # Оптимизация монтирования
+    depends_on:
+      - db
+
+  ####################################################################################################
+  # Nginx
+  ####################################################################################################
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+      - .:/var/www:cached
+      - .docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - .docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - php
+
+  ####################################################################################################
+  # DATABASE (MySQL)
+  ####################################################################################################
+  db:
+    image: mysql:8.0
+    ports:
+      - 3306:3306
+    volumes:
+      - db-data:/var/lib/mysql # Использование Docker volume вместо монтирования с хоста
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel
+      MYSQL_USER: laravel_user
+      MYSQL_PASSWORD: laravel_password
+
+  ####################################################################################################
+  # phpMyAdmin
+  ####################################################################################################
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    depends_on:
+      - db
+
+
+volumes:
+  db-data: # Для хранения данных MySQL
+  # redis-data: # Для хранения данных Redis

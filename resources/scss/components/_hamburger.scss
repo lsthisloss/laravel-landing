@@ -1,0 +1,54 @@
+@use '../base/variables';
+@use '../base/mixins';
+
+.menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  gap: 4px;
+  order: 1;
+
+  span {
+    background-color: variables.$white;
+    height: 2px;
+    width: 18px;
+    display: block;
+    @include mixins.transition(all 0.3s ease);
+  }
+
+
+  .menu-toggle:checked + & span:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 6px;
+  }
+
+  .menu-toggle:checked + & span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle:checked + & span:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -6px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hamburger {
+    display: flex;
+  }
+
+
+  .menu-toggle:checked ~ .nav-links {
+    display: flex !important;
+  }
+}

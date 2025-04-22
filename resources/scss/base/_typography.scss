@@ -1,0 +1,27 @@
+@use './variables';
+@use './mixins';
+
+h1, h2, h3, h4 {
+  font-weight: 800;
+  color: variables.$text-color;
+}
+
+h1 {
+  @include mixins.responsive-font(40px);
+}
+
+h2 {
+  @include mixins.responsive-font(24px);
+}
+
+h3 {
+  @include mixins.responsive-font(20px);
+}
+
+h4 {
+    @include mixins.responsive-font(16px);
+  }
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}

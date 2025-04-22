@@ -1,0 +1,19 @@
+@use './variables';
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin transition($properties...) {
+  transition: $properties variables.$transition;
+}
+
+@mixin responsive-font($size) {
+  font-size: $size;
+
+  @media (max-width: 768px) {
+    font-size: $size * 1;
+  }
+}

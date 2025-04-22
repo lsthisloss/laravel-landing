@@ -1,0 +1,69 @@
+@use "../base/variables";
+
+.language {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid variables.$white;
+    cursor: pointer;
+
+}
+.flag {
+    display: inline-flex;
+    flex-direction: column;
+    width: 22px;
+    height: 14px;
+    border-radius: 1px;
+    overflow: hidden;
+}
+.flag-circle {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.flag-stripe {
+    flex: 1;
+    width: 100%;
+}
+
+.flag-stripe.red {
+    background: #FD2A2A;
+}
+
+.flag-stripe.white {
+    background: #FFFFFF;
+}
+
+.flag-stripe.green {
+    background: #1B8050;
+}
+  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .search,
+  .language {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .search {
+    margin-left: auto;
+  }
