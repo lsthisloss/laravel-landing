@@ -41,7 +41,7 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('partials.header-gradient') <!-- Восстановлен header-gradient -->
+    @include('partials.header-gradient')
     @section('header-content')
     @endsection
 

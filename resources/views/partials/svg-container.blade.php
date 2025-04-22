@@ -6,11 +6,11 @@
             ['src' => '/images/vector.svg', 'alt' => 'Vector'],
         ];
 
-        $totalIcons = $totalIcons ?? 5; // Используем переданное значение или значение по умолчанию
-        $positions = []; // Хранение позиций для проверки пересечений
-        $containerWidth = 800; // Ширина контейнера (в пикселях)
-        $containerHeight = 600; // Высота контейнера (в пикселях)
-        $gap = 10; // Отступ между иконками (в пикселях)
+        $totalIcons = $totalIcons ?? 5;
+        $positions = [];
+        $containerWidth = 800;
+        $containerHeight = 600;
+        $gap = 10; //
 
         // Проверка на пересечение
         $isOverlapping = function ($newX, $newY, $newSize, $positions) use ($gap) {
@@ -33,14 +33,14 @@
     @for ($i = 0; $i < $totalIcons; $i++)
         @php
             $attempts = 0;
-            $maxAttempts = 100; // Максимальное количество попыток для размещения
+            $maxAttempts = 100;
             $placed = false;
 
             do {
                 $randomIcon = $icons[array_rand($icons)];
-                $randomSize = rand(50, 140); // Случайный размер
-                $randomX = rand(0, $containerWidth - $randomSize); // Случайная позиция по X
-                $randomY = rand(0, $containerHeight - $randomSize); // Случайная позиция по Y
+                $randomSize = rand(50, 140);
+                $randomX = rand(0, $containerWidth - $randomSize);
+                $randomY = rand(0, $containerHeight - $randomSize);
 
                 // Проверяем, чтобы иконка не пересекалась
                 if (!$isOverlapping($randomX, $randomY, $randomSize, $positions)) {
