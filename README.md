@@ -63,7 +63,6 @@
 
 ## How to run   
 ```plaintext
-# Clone the repository
 git clone https://github.com/lsthisloss/laravel-landing.git
 cd laravel-landing
 npm install
@@ -77,11 +76,7 @@ You can compile scss styles into css directly
 ```plaintext
 npx sass /home/dev/landing/resources/scss/main.scss /home/dev/landing/resources/css/app.css
 ```
-After this you can create a build of css and js files. Vite creates compiled files in the /public/build directory
-```plaintext
-npm run build 
-```
-If you got an error "Failed to open stream: Permission denied", you need to set chmod -R 775 in your docker container.
+If you got "Failed to open stream: Permission denied", you need to set chmod -R 775.
 ```plaintext
 docker ps
 docker exec -it <php-container-name> bash
@@ -97,7 +92,6 @@ Also, you can try to clear artisan cache, sometimes its because of it.
 php artisan config:clear
 php artisan cache:clear
 php artisan view:clear
-
 ```
 
 ## Summary
