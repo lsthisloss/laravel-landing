@@ -12,14 +12,15 @@
 **In development** mode `npm run dev` the browser loads JavaScript and CSS directly from the Vite server on port 5173, it processes and compiles JavaScript and CSS on the fly. Nginx continues to serve requests to the server side (to Laravel), but frontend resources (JS, CSS) go through Vite.     
 **In production** mode `npm run build` Vite creates optimized files (CSS, JS) in the /public/build directory. Nginx serves these compiled files. Nginx listens on port 80 and serves the Laravel application. Acts as the entry point for all HTTP requests.
 
-`Php-FP` runs a pool of processes that process PHP code. When a web server receives a request to execute a PHP file, it forwards the request via FastCGI.      
-`Nginx` is a web server that serves static files (e.g., CSS, JS, images) and proxies PHP requests to PHP-FPM.         
-`Mysql` a database for laravel sessions and other purposes.        
-`PHPMyAdmin` provides a web-based interface for managing the MySQL database.        
+- **Php-FP** runs a pool of processes that process PHP code. When a web server receives a request to execute a PHP file, it forwards the request via FastCGI.      
+- **Nginx** is a web server that serves static files (e.g., CSS, JS, images) and proxies PHP requests to PHP-FPM.         
+- **Mysql** a database for laravel sessions and other purposes.        
+- **PHPMyAdmin** provides a web-based interface for managing the MySQL database.        
 
 ## Blade Components and the project structure
 <details>
-<summary>Click to expand the components</summary>    
+<summary>Click to expand the components</summary>  
+    
 1. **`partials/svg-container.blade.php`**:
    - Dynamically generates SVG icons with random positions and sizes.
    - Used as a background or decorative element in various sections.
