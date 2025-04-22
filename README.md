@@ -57,29 +57,28 @@
 ```plaintext
 # Clone the repository
 git clone https://github.com/lsthisloss/laravel-landing.git
-cd landing
-
-# Install PHP dependencies
-composer install
-
-# Install Node.js dependencies
+cd laravel-landing
 npm install
-
-# Set up the environment file
 cp .env.example .env
-
-# Generate the application key
-php artisan key:generate
-
-# Run database migrations
+docker compose build php
+docker compose up --build
 php artisan migrate
-
-# Compile frontend assets
-npm run dev
-
-# Start the development server
-php artisan serve
+Now you can open the app at a address http://localhost:80
 ```
+
+If you got an error "Failed to open stream: Permission denied", you need to set chmod -R 775 in your docker container.
+```plaintext
+docker ps
+docker exec -it <php-container-name> bash
+chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
+Now try open the app.
+```
+
+
 
 ## Summary
 Summary: Laravel provides a flexible development framework, making it easy to add new features and maintain existing code, integrate it with API or write a tests.
